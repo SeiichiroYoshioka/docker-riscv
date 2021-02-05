@@ -14,10 +14,6 @@ RUN apt update \
     && cd ../ \
     && rm -rf riscv-gnu-toolchain
 
-ENV PATH=$PATH:/opt/riscv/bin/ \
-    C_INCLUDE_PATH=/opt/riscv/riscv64-unknown-elf/include/ \
-    LD_LIBRARY_PATH=/opt/riscv/riscv64-unknown-elf/lib/ \
-    CC=/opt/riscv/bin/riscv64-unknown-elf-gcc \
-    CXX=/opt/riscv/bin/riscv64-unknown-elf-g++ 
+ENV PATH=$PATH:/opt/riscv/bin/ 
 
 ENTRYPOINT [ "/bin/bash" ]
