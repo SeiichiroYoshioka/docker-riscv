@@ -9,8 +9,10 @@ RUN apt update \
     && apt install -y tzdata git \
     && git clone --recursive https://github.com/riscv/riscv-gnu-toolchain \
     && cd /riscv-gnu-toolchain \
-    && ./configure --prefix=/opt/riscv --with-arch=rv32gc --with-abi=ilp32d \
-    && make
+    && ./configure --prefix=/opt/riscv --with-arch=rv32gc --with-abi=ilp32 \
+    && make \
+    && cd ../ \
+    && rm -rf riscv-gnu-toolchain
 
 ENV PATH=$PATH:/opt/riscv/bin/ \
     C_INCLUDE_PATH=/opt/riscv/riscv64-unknown-elf/include/ \
